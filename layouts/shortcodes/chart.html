@@ -1,0 +1,23 @@
+{{- $id := printf "chart-%s-%d" .Page.File.UniqueID .Ordinal -}}
+{{- $labels := split (.Get "labels") "," -}}
+{{- $values := split (.Get "values") "," -}}
+<div style="height: 320px; margin: 2rem 0;">
+  <canvas id="{{ $id }}"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script>
+  new Chart(document.getElementById('{{ $id }}'), {
+    type: {{ (.Get "type" | default "line") | jsonify | safeJS }},
+    data: {
+      labels: {{ $labels | jsonify | safeJS }},
+      datasets: [{
+        label: {{ (.Get "label" | default "Series") | jsonify | safeJS }},
+        data: {{ $values | jsonify | safeJS }},
+        borderColor: '#4f8a70',
+        backgroundColor: 'rgba(79, 138, 112, 0.16)',
+        tension: 0.25
+      }]
+    },
+    options: { responsive: true, maintainAspectRatio: false }
+  });
+</script>

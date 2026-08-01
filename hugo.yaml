@@ -1,0 +1,84 @@
+baseURL: https://hashbangcoder-v2.github.io/
+locale: en-US
+title: Tabula Rasa
+theme: PaperMod
+copyright: "(c) Joat Mone"
+
+pagination:
+  pagerSize: 10
+
+enableRobotsTXT: true
+enableGitInfo: true
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    anchorLineNos: true
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    noClasses: false
+
+params:
+  env: production
+  title: Tabula Rasa
+  description: Notes on AI systems, experiments, and building in public.
+  author: Joat Mone
+  DateFormat: 2 January 2006
+  defaultTheme: auto
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+
+  homeInfoParams:
+    Title: Tabula Rasa
+    Content: Notes on artificial intelligence, software, evidence, and the work of beginning again.
+
+  socialIcons:
+    - name: github
+      url: https://github.com/hashbangcoder-v2
+    - name: rss
+      url: /index.xml
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 30
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 40
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 50
